@@ -1,103 +1,182 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="bg-black text-white overflow-hidden">
+      
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* ================= HERO SECTION ================= */}
+      <section className="relative min-h-screen flex items-center justify-center text-center px-6 pt-24">
+        {/* Background image and gradient overlay */}
+        <div className="absolute inset-0">
+          <Image
+            src="https://wallpapers.com/images/hd/woman-showing-gym-abs-9pspfxsgjbtlocv6.jpg"
+            alt="Gym Background"
+            fill
+            className="object-cover object-center brightness-75"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/90 mix-blend-multiply" />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        {/* Hero content */}
+        <motion.div
+          className="relative z-10 max-w-3xl"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight drop-shadow-[0_3px_10px_rgba(255,0,0,0.3)]">
+            Push Your <span className="text-red-600">Limits</span>, <br />
+            Build Your <span className="text-red-600">Strength</span>
+          </h1>
+          <p className="text-gray-300 mb-8 text-lg">
+            Join the IronZone community and unleash the best version of yourself.
+          </p>
+          <div className="flex gap-4 justify-center">
+            <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-full text-lg transition-all shadow-md hover:shadow-red-600/30">
+              Join Now
+            </button>
+            <button className="border border-gray-600 hover:border-red-600 hover:text-red-600 text-white px-6 py-3 rounded-full text-lg transition-all">
+              View Programs
+            </button>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ================= PROGRAMS SECTION ================= */}
+      <section className="py-24 px-6 bg-gray-900 text-center">
+        <h2 className="text-4xl font-bold mb-12">
+          Our <span className="text-red-600">Programs</span>
+        </h2>
+        <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          {[
+            {
+              name: "Bodybuilding",
+              img: "https://images.squarespace-cdn.com/content/v1/5ebef943272c1041d83b1d15/a6dbc39a-a8e6-4072-a259-bf44c4aecc6f/Natural+Bodybuilding.jpg",
+            },
+            {
+              name: "Crossfit",
+              img: "https://www.morrant.com/Portals/6/LiveBlog/841/Morrant%20crossfit%20image.png?ver=2023-11-23-114552-067",
+            },
+            {
+              name: "Yoga",
+              img: "https://i.shgcdn.com/62f0a505-76f9-4160-847f-f3dbe2ed71d0/-/format/auto/-/preview/3000x3000/-/quality/lighter/",
+            },
+            {
+              name: "Boxing",
+              img: "https://www.walkermorris.co.uk/wp-content/uploads/2022/07/woman-boxing-in-a-gym.jpg",
+            },
+          ].map((p) => (
+            <div
+              key={p.name}
+              className="bg-black rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all"
+            >
+              <Image
+                width={1000}
+                height={1000}
+                src={p.img}
+                alt={p.name}
+                className="h-56 w-full object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">{p.name}</h3>
+                <p className="text-gray-400 text-sm">
+                  Train with professionals and reach your peak performance.
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ================= TRAINERS SECTION ================= */}
+      <section className="py-24 px-6 bg-black text-center">
+        <h2 className="text-4xl font-bold mb-12">
+          Meet Our <span className="text-red-600">Trainers</span>
+        </h2>
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {[
+            {
+              name: "Alex Johnson",
+              role: "Strength Coach",
+              img: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Boulder_Worldcup_Vienna_28-05-2010_quali-w100_Alex_Johnson.jpg",
+            },
+            {
+              name: "Sarah Lee",
+              role: "Yoga Instructor",
+              img: "https://www.voguehk.com/media/2024/03/hh-853x1280.jpg",
+            },
+            {
+              name: "Mike Tyson",
+              role: "Boxing Expert",
+              img: "https://hips.hearstapps.com/hmg-prod/images/mike-tyson-looks-on-prior-to-the-heavyweight-fight-between-news-photo-1716476934.jpg?crop=0.640xw:0.961xh;0.154xw,0.0391xh&resize=640:*",
+            },
+          ].map((t) => (
+            <div
+              key={t.name}
+              className="bg-gray-900 rounded-2xl overflow-hidden hover:shadow-[0_0_20px_rgba(255,0,0,0.2)] transition-all"
+            >
+              <Image
+                width={1000}
+                height={1000}
+                src={t.img}
+                alt={t.name}
+                className="h-64 w-full object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-1">{t.name}</h3>
+                <p className="text-gray-400">{t.role}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ================= PRICING SECTION ================= */}
+      <section className="py-24 px-6 bg-gray-900 text-center">
+        <h2 className="text-4xl font-bold mb-12">
+          Choose Your <span className="text-red-600">Plan</span>
+        </h2>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {[
+            {
+              plan: "Basic",
+              price: "$29/mo",
+              features: ["Gym Access", "Locker", "1 Trainer Session"],
+            },
+            {
+              plan: "Pro",
+              price: "$49/mo",
+              features: ["All Basic +", "Unlimited Classes", "Sauna Access"],
+            },
+            {
+              plan: "Elite",
+              price: "$79/mo",
+              features: ["All Pro +", "Personal Trainer", "Nutrition Plan"],
+            },
+          ].map((p) => (
+            <div
+              key={p.plan}
+              className="bg-black rounded-2xl p-8 border border-gray-800 hover:border-red-600 hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all"
+            >
+              <h3 className="text-2xl font-semibold mb-2">{p.plan}</h3>
+              <p className="text-red-600 text-3xl font-bold mb-6">{p.price}</p>
+              <ul className="text-gray-400 mb-8 space-y-2">
+                {p.features.map((f) => (
+                  <li key={f}>{f}</li>
+                ))}
+              </ul>
+              <button className="bg-red-600 hover:bg-red-700 text-white w-full py-3 rounded-full transition-all shadow-md hover:shadow-red-600/30">
+                Choose Plan
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
